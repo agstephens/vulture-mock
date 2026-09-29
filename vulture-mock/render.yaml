@@ -1,0 +1,12 @@
+# One-click deploy on Render's free tier: New > Blueprint > pick this repo
+services:
+  - type: web
+    name: vulture-mock
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: MOCK_DELAY_SECONDS
+        value: "1.5"
+      - key: CORS_ALLOW_ORIGIN
+        value: "*"
